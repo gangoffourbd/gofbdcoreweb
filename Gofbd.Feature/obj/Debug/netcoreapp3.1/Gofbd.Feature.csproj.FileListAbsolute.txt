@@ -1,0 +1,9 @@
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Feature\bin\Debug\netcoreapp3.1\Gofbd.Feature.deps.json
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Feature\bin\Debug\netcoreapp3.1\Gofbd.Feature.dll
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Feature\bin\Debug\netcoreapp3.1\Gofbd.Feature.pdb
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Feature\obj\Debug\netcoreapp3.1\Gofbd.Feature.csprojAssemblyReference.cache
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Feature\obj\Debug\netcoreapp3.1\Gofbd.Feature.csproj.CoreCompileInputs.cache
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Feature\obj\Debug\netcoreapp3.1\Gofbd.Feature.AssemblyInfoInputs.cache
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Feature\obj\Debug\netcoreapp3.1\Gofbd.Feature.AssemblyInfo.cs
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Feature\obj\Debug\netcoreapp3.1\Gofbd.Feature.dll
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Feature\obj\Debug\netcoreapp3.1\Gofbd.Feature.pdb

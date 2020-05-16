@@ -1,0 +1,9 @@
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Core\bin\Debug\netcoreapp3.1\Gofbd.Core.deps.json
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Core\bin\Debug\netcoreapp3.1\Gofbd.Core.dll
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Core\bin\Debug\netcoreapp3.1\Gofbd.Core.pdb
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Core\obj\Debug\netcoreapp3.1\Gofbd.Core.AssemblyInfoInputs.cache
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Core\obj\Debug\netcoreapp3.1\Gofbd.Core.AssemblyInfo.cs
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Core\obj\Debug\netcoreapp3.1\Gofbd.Core.dll
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Core\obj\Debug\netcoreapp3.1\Gofbd.Core.pdb
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Core\obj\Debug\netcoreapp3.1\Gofbd.Core.csproj.CoreCompileInputs.cache
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.Core\obj\Debug\netcoreapp3.1\Gofbd.Core.csprojAssemblyReference.cache

@@ -1,14 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
 namespace Gofbd.Web
 {
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Hosting;
+
+    using Serilog;
+    using Serilog.Formatting.Compact;
+    using System;
+
     public class Program
     {
         public static void Main(string[] args)
@@ -18,6 +16,7 @@ namespace Gofbd.Web
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

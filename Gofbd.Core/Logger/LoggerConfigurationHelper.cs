@@ -1,13 +1,19 @@
-﻿namespace Gofbd.Core.Logger
+﻿namespace Gofbd.Core
 {
-    using System;
-    using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.DependencyInjection;
+    using Serilog;
+    using Serilog.Events;
 
     public static class LoggerConfigurationHelper
     {
-        public static ILoggerFactory UseFileLoggin(this ILoggerFactory loggerFactory)
+        public static void AddSerilog(this IServiceCollection services)
         {
-            return loggerFactory;
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .WriteTo.File("/logs/logfile.txt")
+                .CreateLogger();
         }
     }
 }

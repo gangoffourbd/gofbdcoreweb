@@ -1,28 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/System/Volumes/Data/Development/Projects/gofbdcoreweb/Gofbd.Core/Gofbd.Core.csproj": {}
+    "C:\\Users\\jahir-vbox-pc\\Source\\Repos\\gangoffourbd\\gofbdcoreweb\\Gofbd.Core\\Gofbd.Core.csproj": {}
   },
   "projects": {
-    "/System/Volumes/Data/Development/Projects/gofbdcoreweb/Gofbd.Core/Gofbd.Core.csproj": {
+    "C:\\Users\\jahir-vbox-pc\\Source\\Repos\\gangoffourbd\\gofbdcoreweb\\Gofbd.Core\\Gofbd.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/System/Volumes/Data/Development/Projects/gofbdcoreweb/Gofbd.Core/Gofbd.Core.csproj",
+        "projectUniqueName": "C:\\Users\\jahir-vbox-pc\\Source\\Repos\\gangoffourbd\\gofbdcoreweb\\Gofbd.Core\\Gofbd.Core.csproj",
         "projectName": "Gofbd.Core",
-        "projectPath": "/System/Volumes/Data/Development/Projects/gofbdcoreweb/Gofbd.Core/Gofbd.Core.csproj",
-        "packagesPath": "/Users/jahirulislam/.nuget/packages/",
-        "outputPath": "/System/Volumes/Data/Development/Projects/gofbdcoreweb/Gofbd.Core/obj/",
+        "projectPath": "C:\\Users\\jahir-vbox-pc\\Source\\Repos\\gangoffourbd\\gofbdcoreweb\\Gofbd.Core\\Gofbd.Core.csproj",
+        "packagesPath": "C:\\Users\\jahir-vbox-pc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jahir-vbox-pc\\Source\\Repos\\gangoffourbd\\gofbdcoreweb\\Gofbd.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "/Users/jahirulislam/.config/NuGet/NuGet.Config"
+          "C:\\Users\\jahir-vbox-pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,9 +42,9 @@
               "target": "Package",
               "version": "[3.1.4, )"
             },
-            "Serilog.Extensions.Logging": {
+            "Serilog.AspNetCore": {
               "target": "Package",
-              "version": "[3.0.1, )"
+              "version": "[3.2.0, )"
             }
           },
           "imports": [
@@ -63,7 +62,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

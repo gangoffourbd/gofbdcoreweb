@@ -1,0 +1,12 @@
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.DataAccess\bin\Debug\netcoreapp3.1\Gofbd.DataAccess.deps.json
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.DataAccess\bin\Debug\netcoreapp3.1\Gofbd.DataAccess.dll
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.DataAccess\bin\Debug\netcoreapp3.1\Gofbd.DataAccess.pdb
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.DataAccess\bin\Debug\netcoreapp3.1\Gofbd.Core.dll
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.DataAccess\bin\Debug\netcoreapp3.1\Gofbd.Core.pdb
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.DataAccess\obj\Debug\netcoreapp3.1\Gofbd.DataAccess.csprojAssemblyReference.cache
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.DataAccess\obj\Debug\netcoreapp3.1\Gofbd.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.DataAccess\obj\Debug\netcoreapp3.1\Gofbd.DataAccess.AssemblyInfoInputs.cache
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.DataAccess\obj\Debug\netcoreapp3.1\Gofbd.DataAccess.AssemblyInfo.cs
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.DataAccess\obj\Debug\netcoreapp3.1\Gofbd.DataAccess.csproj.CopyComplete
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.DataAccess\obj\Debug\netcoreapp3.1\Gofbd.DataAccess.dll
+C:\Users\jahir-vbox-pc\Source\Repos\gangoffourbd\gofbdcoreweb\Gofbd.DataAccess\obj\Debug\netcoreapp3.1\Gofbd.DataAccess.pdb
