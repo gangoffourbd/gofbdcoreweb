@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Gofbd.Core\Gofbd.Core.csproj" />
+    <ProjectReference Include="..\Gofbd.Domain\Gofbd.Domain.csproj" />
   </ItemGroup>
 
 </Project>

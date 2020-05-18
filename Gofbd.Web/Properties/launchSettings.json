@@ -1,10 +1,24 @@
-﻿{
+//{
+//  "iisSettings": {
+//    "windowsAuthentication": false,
+//    "anonymousAuthentication": true,
+//    "iis": {
+//      "applicationUrl": "http://localhost/Gofbd.Web",
+//      "sslPort": 0
+//    },
+//    "iisExpress": {
+//      "applicationUrl": "http://localhost:49188",
+//      "sslPort": 44375
+//    }
+//  }
+//}
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:49188",
-      "sslPort": 44389
+      "sslPort": 44375
     }
   },
   "profiles": {

@@ -7,7 +7,7 @@ namespace Gofbd.Web
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
-    using Microsoft.Extensions.Logging;
+    using Serilog;
 
     public class Startup
     {
@@ -15,12 +15,17 @@ namespace Gofbd.Web
         {
             Configuration = configuration;
         }
-           
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddDbContext<DataContext>((options) =>
+            //{
+            //    string connectionString = "Server=JAHIR-PC;Database=gofbdcorewebdb;User Id=sa;password=MyPass2020;Trusted_Connection=False;MultipleActiveResultSets=true;";//this.Configuration.GetSection("ConnectionStrings:DefaultConnection").Value;
+            //    options.UseSqlServer(connectionString);
+            //});
             services.AddSerilog();
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
@@ -69,6 +74,7 @@ namespace Gofbd.Web
                 if (env.IsDevelopment())
                 {
                     spa.UseAngularCliServer(npmScript: "start");
+                    //spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
             });
         }
