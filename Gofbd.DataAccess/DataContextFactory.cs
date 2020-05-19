@@ -13,7 +13,7 @@ namespace Gofbd.DataAccess
         }
         public async Task<DataContext> Create()
         {
-            var connectionString = this._configuration.GetSection("ConnectionStrings:DefaultConnection").Value;
+            var connectionString = this._configuration.GetConnectionString("DefaultConnection");
             var optionsBuilder = new DbContextOptionsBuilder<DataContext>();
             optionsBuilder.UseSqlServer(connectionString);
             return await Task.FromResult(new DataContext(optionsBuilder));

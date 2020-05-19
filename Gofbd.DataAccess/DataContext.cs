@@ -12,16 +12,19 @@
 
     public class DataContext : DbContext, IDataContext
     {
-        //private readonly ILogger logger;
+        private readonly ILogger logger;
+        public DataContext(DbContextOptions options) : base(options)
+        {
+        }
 
         public DataContext(DbContextOptionsBuilder builder) : base(builder.Options)
         {
         }
 
-        //public DataContext(DbContextOptionsBuilder builder, ILogger<DataContext> logger) : this(builder)
-        //{
-        //    this.logger = logger;
-        //}
+        public DataContext(DbContextOptionsBuilder builder, ILogger<DataContext> logger) : this(builder)
+        {
+            this.logger = logger;
+        }
         public DbSet<Product> QueueCategories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

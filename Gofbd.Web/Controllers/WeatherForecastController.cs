@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Gof.Api.Domain;
+using Gofbd.Core;
+using Gofbd.DataAccess;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -17,15 +20,28 @@ namespace Gofbd.Web.Controllers
         };
 
         private readonly ILogger _logger;
+        private readonly IDataContextFactory dataContextFactory;
+        private readonly IDataContext dataContext;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger,
+            IDataContextFactory dataContextFactory,
+            IDataContext dataContext)
         {
             _logger = logger;
+            this.dataContextFactory = dataContextFactory;
+            this.dataContext = dataContext;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IEnumerable<WeatherForecast>> Get()
         {
+            using (var dataContext = await this.dataContextFactory.Create())
+            {
+                var product = dataContext.Get<Product>().First();
+                this._logger.LogInformation($"Product name {product.Name} from data context factory.");
+            }
+            var pro = this.dataContext.Get<Product>().First();
+            this._logger.LogInformation($"Product name {pro.Name} from data context.");
             var name = "Serilog";
             this._logger.LogInformation("test message from {name}", name);
             var rng = new Random();

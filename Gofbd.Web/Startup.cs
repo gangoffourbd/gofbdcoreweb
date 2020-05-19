@@ -1,13 +1,16 @@
 namespace Gofbd.Web
 {
     using Gofbd.Core;
+    using Gofbd.DataAccess;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.SpaServices.AngularCli;
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Serilog;
+    using System.Linq;
 
     public class Startup
     {
@@ -21,11 +24,13 @@ namespace Gofbd.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<DataContext>((options) =>
-            //{
-            //    string connectionString = "Server=JAHIR-PC;Database=gofbdcorewebdb;User Id=sa;password=MyPass2020;Trusted_Connection=False;MultipleActiveResultSets=true;";//this.Configuration.GetSection("ConnectionStrings:DefaultConnection").Value;
-            //    options.UseSqlServer(connectionString);
-            //});
+            services.AddDbContext<DataContext>((options) =>
+            {
+                string connectionString = Configuration.GetConnectionString("DefaultConnection"); //"Server=JAHIR-PC;Database=master;User Id=sa;password=MyPassord2020;Trusted_Connection=False;MultipleActiveResultSets=true;";//this.Configuration.GetSection("ConnectionStrings:DefaultConnection").Value;
+                options.UseSqlServer(connectionString);
+            });
+            services.AddScoped<IDataContext, DataContext>();
+            services.AddScoped<IDataContextFactory, DataContextFactory>();
             services.AddSerilog();
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
