@@ -2,6 +2,7 @@ namespace Gofbd.Web
 {
     using Gofbd.Core;
     using Gofbd.DataAccess;
+    using Gofbd.Web.Models;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -10,6 +11,13 @@ namespace Gofbd.Web
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Serilog;
+    using System.Text;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
+    using Microsoft.IdentityModel.Tokens;
+    using Microsoft.AspNetCore.Authentication;
+    using Gofbd.Web.Services;
+    using Gofbd.Web.Handler;
+    using MediatR;
     using System.Linq;
 
     public class Startup
@@ -33,6 +41,10 @@ namespace Gofbd.Web
             services.AddScoped<IDataContextFactory, DataContextFactory>();
             services.AddSerilog();
             services.AddControllersWithViews();
+            //services.AddBasicAuthentication();
+            services.AddJwtAuthentication(Configuration);
+            services.AddMediatR(AssemblyProvider.Instance.Assemblies.ToArray());
+            services.AddScoped<IAuthenticateService, AuthenticateService>();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -61,7 +73,8 @@ namespace Gofbd.Web
             }
 
             app.UseRouting();
-
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

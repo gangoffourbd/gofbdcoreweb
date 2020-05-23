@@ -5,11 +5,15 @@ using System.Threading.Tasks;
 using Gof.Api.Domain;
 using Gofbd.Core;
 using Gofbd.DataAccess;
+using Gofbd.Web.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace Gofbd.Web.Controllers
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -22,30 +26,33 @@ namespace Gofbd.Web.Controllers
         private readonly ILogger _logger;
         private readonly IDataContextFactory dataContextFactory;
         private readonly IDataContext dataContext;
+        private readonly IAuthenticateService authenticateService;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger,
             IDataContextFactory dataContextFactory,
-            IDataContext dataContext)
+            IDataContext dataContext,
+            IAuthenticateService authenticateService)
         {
             _logger = logger;
             this.dataContextFactory = dataContextFactory;
             this.dataContext = dataContext;
+            this.authenticateService = authenticateService;
         }
 
         [HttpGet]
         public async Task<IEnumerable<WeatherForecast>> Get()
         {
-            using (var dataContext = await this.dataContextFactory.Create())
-            {
-                var product = dataContext.Get<Product>().First();
-                this._logger.LogInformation($"Product name {product.Name} from data context factory.");
-            }
-            var pro = this.dataContext.Get<Product>().First();
-            this._logger.LogInformation($"Product name {pro.Name} from data context.");
+            //using (var dataContext = await this.dataContextFactory.Create())
+            //{
+            //    var product = dataContext.Get<Product>().First();
+            //    this._logger.LogInformation($"Product name {product.Name} from data context factory.");
+            //}
+            //var pro = this.dataContext.Get<Product>().First();
+            //this._logger.LogInformation($"Product name {pro.Name} from data context.");
             var name = "Serilog";
             this._logger.LogInformation("test message from {name}", name);
             var rng = new Random();
-            return Enumerable.Range(1, 10).Select(index => new WeatherForecast
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
