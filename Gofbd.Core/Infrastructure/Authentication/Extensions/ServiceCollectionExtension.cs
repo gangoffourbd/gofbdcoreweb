@@ -34,10 +34,10 @@
             });
         }
 
-        public static void AddBasicAuthentication(this IServiceCollection services)
-        {
-            services.AddAuthentication("BasicAuthentication")
-                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
-        }
+        //public static void AddBasicAuthentication(this IServiceCollection services)
+        //{
+        //    services.AddAuthentication("BasicAuthentication")
+        //        .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+        //}
     }
 }

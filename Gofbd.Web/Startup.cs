@@ -1,23 +1,20 @@
 namespace Gofbd.Web
 {
+    using AutoMapper;
     using Gofbd.Core;
     using Gofbd.DataAccess;
-    using Gofbd.Web.Models;
+    using Gofbd.Domain;
+    using MediatR;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.SpaServices.AngularCli;
+    using Microsoft.CodeAnalysis.Options;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Serilog;
-    using System.Text;
-    using Microsoft.AspNetCore.Authentication.JwtBearer;
-    using Microsoft.IdentityModel.Tokens;
-    using Microsoft.AspNetCore.Authentication;
-    using Gofbd.Web.Services;
-    using Gofbd.Web.Handler;
-    using MediatR;
     using System.Linq;
 
     public class Startup
@@ -34,9 +31,17 @@ namespace Gofbd.Web
         {
             services.AddDbContext<DataContext>((options) =>
             {
-                string connectionString = Configuration.GetConnectionString("DefaultConnection"); //"Server=JAHIR-PC;Database=master;User Id=sa;password=MyPassord2020;Trusted_Connection=False;MultipleActiveResultSets=true;";//this.Configuration.GetSection("ConnectionStrings:DefaultConnection").Value;
+                string connectionString = Configuration.GetConnectionString("DefaultConnection");
                 options.UseSqlServer(connectionString);
             });
+            services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequiredLength = 6;
+            }).AddEntityFrameworkStores<DataContext>()
+            .AddDefaultTokenProviders();
+
             services.AddScoped<IDataContext, DataContext>();
             services.AddScoped<IDataContextFactory, DataContextFactory>();
             services.AddSerilog();
@@ -44,7 +49,8 @@ namespace Gofbd.Web
             //services.AddBasicAuthentication();
             services.AddJwtAuthentication(Configuration);
             services.AddMediatR(AssemblyProvider.Instance.Assemblies.ToArray());
-            services.AddScoped<IAuthenticateService, AuthenticateService>();
+
+            services.AddAutoMapper(AssemblyProvider.Instance.Assemblies.ToArray());
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {

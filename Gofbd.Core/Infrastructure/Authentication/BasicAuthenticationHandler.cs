@@ -27,30 +27,31 @@
 
         protected async override Task<AuthenticateResult> HandleAuthenticateAsync()
         {
-            this._logger.LogInformation("BasicAuthenticationHanlder:HandleAuthenticationAsync called.");
+            //this._logger.LogInformation("BasicAuthenticationHanlder:HandleAuthenticationAsync called.");
 
-            if (!Request.Headers.ContainsKey("Authorization"))
-                return AuthenticateResult.Fail("Authorization header was not found.");
+            //if (!Request.Headers.ContainsKey("Authorization"))
+            //    return AuthenticateResult.Fail("Authorization header was not found.");
 
-            var authenticationHeaderValue = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
-            var bytes = Convert.FromBase64String(authenticationHeaderValue.Parameter);
-            var passedHeaderValue = Encoding.Unicode.GetString(bytes);
-            this._logger.LogInformation($"{passedHeaderValue}");
+            //var authenticationHeaderValue = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
+            //var bytes = Convert.FromBase64String(authenticationHeaderValue.Parameter);
+            //var passedHeaderValue = Encoding.Unicode.GetString(bytes);
+            //this._logger.LogInformation($"{passedHeaderValue}");
 
-            var email = passedHeaderValue.Split(":")[0];
-            var password = passedHeaderValue.Split(":")[1];
+            //var email = passedHeaderValue.Split(":")[0];
+            //var password = passedHeaderValue.Split(":")[1];
 
-            //authenticate in database
-            var user = this.authenticateService.Authenticate(email, password);
-            if (user == null)
-                return AuthenticateResult.Fail("Username or password incorrect.");
+            ////authenticate in database
+            //var user = this.authenticateService.Authenticate(email, password);
+            //if (user == null)
+            //    return AuthenticateResult.Fail("Username or password incorrect.");
 
-            var claims = new[] { new Claim(ClaimTypes.Name, user.Email) };
-            var identity = new ClaimsIdentity(claims, Scheme.Name);
-            var principal = new ClaimsPrincipal(identity);
-            var ticket = new AuthenticationTicket(principal, Scheme.Name);
+            //var claims = new[] { new Claim(ClaimTypes.Name, user.Email) };
+            //var identity = new ClaimsIdentity(claims, Scheme.Name);
+            //var principal = new ClaimsPrincipal(identity);
+            //var ticket = new AuthenticationTicket(principal, Scheme.Name);
 
-            return AuthenticateResult.Success(ticket);
+            //return AuthenticateResult.Success(ticket);
+            throw new NotImplementedException();
         }
     }
 }

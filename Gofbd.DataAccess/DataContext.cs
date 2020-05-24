@@ -1,7 +1,8 @@
 ﻿namespace Gofbd.DataAccess
 {
-    using Gof.Api.Domain;
     using Gofbd.Core;
+    using Gofbd.Domain;
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Logging;
     using System;
@@ -10,7 +11,7 @@
     using System.Data.Common;
     using System.Threading.Tasks;
 
-    public class DataContext : DbContext, IDataContext
+    public class DataContext : IdentityDbContext<ApplicationUser>, IDataContext
     {
         private readonly ILogger logger;
         public DataContext(DbContextOptions options) : base(options)
@@ -25,11 +26,10 @@
         {
             this.logger = logger;
         }
-        public DbSet<Product> QueueCategories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<TDomainObject> Get<TDomainObject>() where TDomainObject : class

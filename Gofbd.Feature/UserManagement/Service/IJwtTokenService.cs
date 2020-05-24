@@ -4,8 +4,8 @@
 
     public interface IJwtTokenService
     {
-        string CreateAccessToken(UserDto userDto);
+        string GenerateAccessToken(UserDto userDto);
 
-        string CreateRefreshToken(UserDto userDto);
+        string GenerateRefreshToken(UserDto userDto);
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace Gofbd.Web.Controllers
 {
     using Gofbd.Core.Infrastructure.ExtensionMetthod;
+    using Gofbd.Dto;
     using Gofbd.Feature;
     using MediatR;
     using Microsoft.AspNetCore.Authorization;
@@ -33,7 +34,7 @@
         [HttpPost]
         public IActionResult SignIn()
         {
-            var headerKey = this._configuration.GetSection("Authentication:HeaderKey").Value;
+            var headerKey = this._configuration["Authentication:HeaderKey"];
             if (!Request.Headers.ContainsKey(headerKey))
             {
                 this._logger.LogInformation("Must sent authentication information through header. Authoriztion value was not found in header.");
@@ -54,13 +55,32 @@
             var password = splitted[1].Trim('~');
             var signIncommand = new SignInCommand()
             {
-                UserId = userId,
+                UserName = userId,
                 Password = password
             };
             var user = this._mediatR.Send(signIncommand);
+
             if (user == null)
                 return BadRequest(new { message = "Incorrect Username or Password." });
             return Ok(user);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult SignOut()
+        {
+            //TODO: Implement signout
+            return Ok();
+        }
+
+        [HttpPost]
+        public IActionResult RegisterUser([FromBody] RegisterUserCommand command)
+        {
+            var userDto = this._mediatR.Send(command);
+            if (userDto == null)
+                return BadRequest("Something went wrong.");
+
+            return Ok(userDto);
         }
     }
 }

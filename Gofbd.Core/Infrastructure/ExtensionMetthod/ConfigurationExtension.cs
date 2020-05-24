@@ -19,5 +19,10 @@ namespace Gofbd.Core
         {
             return configuration.GetSection("Authentication:Audience").Value;
         }
+
+        public static string GetAuthHeaderKey(this IConfiguration configuration)
+        {
+            return configuration.GetSection("Authentication:Audience").Value;
+        }
     }
 }

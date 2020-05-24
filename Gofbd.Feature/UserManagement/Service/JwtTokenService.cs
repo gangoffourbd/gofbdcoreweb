@@ -19,7 +19,7 @@
             this._configuration = configuration;
         }
 
-        public string CreateAccessToken(UserDto userDto)
+        public string GenerateAccessToken(UserDto userDto)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this._configuration.GetJwtSecretKey()));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -27,9 +27,9 @@
             var expirationTime = DateTime.UtcNow.AddDays(1);
             var claims = new List<Claim>();
 
-            claims.Add(new Claim(JwtRegisteredClaimNames.Sub, userDto.UserName));
-            claims.Add(new Claim(JwtRegisteredClaimNames.Email, userDto.Email));
-            claims.Add(new Claim("LoggedInUserId", userDto.UserId.ToString()));
+            claims.Add(new Claim(ClaimTypes.NameIdentifier, userDto.UserName));
+            claims.Add(new Claim(ClaimTypes.Email, userDto.Email));
+            claims.Add(new Claim("LoggedInUserId", userDto.UserId));
 
             var token = new JwtSecurityToken(issuer: this._configuration.GetJwtIssuer(),
               audience: this._configuration.GetJwtAudience(),
@@ -40,9 +40,9 @@
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public string CreateRefreshToken(UserDto userDto)
+        public string GenerateRefreshToken(UserDto userDto)
         {
-            throw new NotImplementedException();
+            return Guid.NewGuid().ToString("D");
         }
     }
 }

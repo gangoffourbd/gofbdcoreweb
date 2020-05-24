@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Gof.Api.Domain;
-using Gofbd.Core;
+﻿using Gofbd.Core;
 using Gofbd.DataAccess;
-using Gofbd.Web.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Gofbd.Web.Controllers
 {
@@ -26,17 +24,14 @@ namespace Gofbd.Web.Controllers
         private readonly ILogger _logger;
         private readonly IDataContextFactory dataContextFactory;
         private readonly IDataContext dataContext;
-        private readonly IAuthenticateService authenticateService;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger,
             IDataContextFactory dataContextFactory,
-            IDataContext dataContext,
-            IAuthenticateService authenticateService)
+            IDataContext dataContext)
         {
             _logger = logger;
             this.dataContextFactory = dataContextFactory;
             this.dataContext = dataContext;
-            this.authenticateService = authenticateService;
         }
 
         [HttpGet]
